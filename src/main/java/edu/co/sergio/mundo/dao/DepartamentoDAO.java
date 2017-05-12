@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import edu.co.sergio.mundo.vo.Departamento;
+import edu.co.sergio.mundo.vo.Obra_De_Arte;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,7 +33,7 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
 	 * Funcion que permite obtener una lista de los departamentos existentes en la base de datos
 	 * @return List<Departamento> Retorna la lista de Departamentos existentes en la base de datos
 	 */
-	public List<Departamento> findAll() {
+	/*public List<Departamento> findAll() {
 		List<Departamento> departamentos= null;
 	    String query = "SELECT * FROM Depto";
 	    Connection connection = null;
@@ -69,7 +70,7 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
 		}
 	    
 	    return departamentos;
-	}
+	}*/
 
 	
 	/**
@@ -77,7 +78,7 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
 	 * @param Departamento recibe un objeto de tipo Departamento 
 	 * @return boolean retorna true si la operacion de insercion es exitosa.
 	 */
-	public boolean insert(Departamento t) {
+	public boolean insert(Obra_De_Arte t) {
 		boolean result=false;
 		Connection connection=null;
             try {
@@ -85,12 +86,14 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
             } catch (URISyntaxException ex) {
                 Logger.getLogger(DepartamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-	    String query = " insert into Depto (id_depto,nom_depto)"  + " values (?,?)";
+	    String query = " insert into ObraArte (nombre,descripcion,estilo,valor)"  + " values (?,?,?,?)";
         PreparedStatement preparedStmt=null;
 	    try {
 			preparedStmt = connection.prepareStatement(query);
-			preparedStmt.setInt (1, t.getId_departamento());
-                        preparedStmt.setString (2, t.getNom_departamento());
+			preparedStmt.setString (1, t.getNombre());
+                        preparedStmt.setString (2, t.getDescripcion());
+                        preparedStmt.setString (3, t.getEstilo());
+                        preparedStmt.setDouble(4, t.getValor());
 			result= preparedStmt.execute();
 	    } catch (SQLException e) {
 			e.printStackTrace();
@@ -98,12 +101,32 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
 		return result;
 	}
 
+    @Override
+    public List<Departamento> findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean insert(Departamento t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean update(Departamento t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean delete(Departamento t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 	/**
 	 * Funcion que permite realizar la actualizacion de un nuevo registro en la tabla Departamento
 	 * @param Departamento recibe un objeto de tipo Departamento 
 	 * @return boolean retorna true si la operacion de actualizacion es exitosa.
 	 */
-	public boolean update(Departamento t) {
+	/*public boolean update(Departamento t) {
 		boolean result=false;
 		Connection connection= null;
             try {
@@ -126,14 +149,14 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
 		}
 			
 		return result;
-	}
+	}*/
 
 	/**
 	 * Funcion que permite realizar la eliminario de registro en la tabla Departamento
 	 * @param Departamento recibe un objeto de tipo Departamento 
 	 * @return boolean retorna true si la operacion de borrado es exitosa.
 	 */
-	public boolean delete(Departamento t) {
+	/*public boolean delete(Departamento t) {
 	   boolean result=false;
 	   Connection connection = null;
             try {
@@ -152,5 +175,5 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
 		}
 	   
 	   return result;
-	}
+	}*/
 }
