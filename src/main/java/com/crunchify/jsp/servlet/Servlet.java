@@ -70,7 +70,7 @@ public class Servlet extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         try {
-            
+
             connection = conexion.getConnection();
 
             int opcion = Integer.parseInt(request.getParameter("opcion"));
@@ -94,7 +94,8 @@ public class Servlet extends HttpServlet {
                         out.println("<!DOCTYPE html>");
                         out.println("<html>");
                         out.println("<head>");
-                        out.println("<title>Servlet Servlet_Menu</title>");
+                        out.println("<title>Servlet</title>");
+                        out.println("<meta http-equiv=" + "Refresh" + " content=" + "3;url=" + "InsertarObra.html" + ">");
                         out.println("</head>");
                         out.println("<body>");
                         out.println("<h1>La Obra Se Agrego Satisfactoriamente...</h1>");
