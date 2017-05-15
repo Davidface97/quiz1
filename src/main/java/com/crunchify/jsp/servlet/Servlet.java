@@ -70,6 +70,7 @@ public class Servlet extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         try {
+            
             connection = conexion.getConnection();
 
             int opcion = Integer.parseInt(request.getParameter("opcion"));
