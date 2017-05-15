@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "Servlet_Menu", urlPatterns = {"/Servlet_Menu"})
+@WebServlet(name = "Servlet", urlPatterns = {"/Servlet_Menu"})
 public class Servlet extends HttpServlet {
 
     Conexion conexion = new Conexion();
