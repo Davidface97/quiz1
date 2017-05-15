@@ -1,11 +1,19 @@
 package edu.co.sergio.mundo.vo;
 
 public class Obra_De_Arte {
-
+    private String usuario;
     private String nombre;
     private String descripcion;
     private String estilo;
     private double valor;
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 
     public String getNombre() {
         return nombre;

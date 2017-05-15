@@ -80,8 +80,9 @@ public class Servlet extends HttpServlet {
                     String NombreObra = request.getParameter("NombreObra");
                     String Descripcion = request.getParameter("Descripcion");
                     String Estilo = request.getParameter("Estilo");
-                    int IdArtista = Integer.parseInt(request.getParameter("IdArtista"));
+                    String NombreArtista = request.getParameter("NombreArtista");
                     Obra_De_Arte oa = new Obra_De_Arte();
+                    oa.setUsuario(NombreArtista);
                     oa.setNombre(NombreObra);
                     oa.setDescripcion(Descripcion);
                     oa.setEstilo(Estilo);
