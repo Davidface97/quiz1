@@ -89,30 +89,32 @@ public class Servlet extends HttpServlet {
                     oa.setValor(Valor);
                     b = dao.insert(oa);
 
-                    if (b == true) {
+                    if (b == false) {
                         out.println("<!DOCTYPE html>");
                         out.println("<html>");
                         out.println("<head>");
                         out.println("<title>Servlet Servlet_Menu</title>");
                         out.println("</head>");
                         out.println("<body>");
-                        out.println("<h1>El Usuario Se Agrego Satisfactoriamente...</h1>");
+                        out.println("<h1>La Obra Se Agrego Satisfactoriamente...</h1>");
                         out.println("<h1>" + NombreObra + "</h1>");
                         out.println("<h1>" + Descripcion + "</h1>");
                         out.println("<h1>" + Estilo + "</h1>");
                         out.println("<h1>" + Valor + "</h1>");
+                        out.println("<h1>" + b + "</h1>");
                         out.println("</body>");
                         out.println("</html>");
                     } else {
                         out.println("<!DOCTYPE html>");
                         out.println("<html>");
                         out.println("<head>");
-                        out.println("<title>Servlet Servlet_Menu</title>");
+                        out.println("<title>Respuesta Servlet</title>");
                         out.println("<meta http-equiv=" + "Refresh" + " content=" + "3;url=" + "InsertarObra.html" + ">");
                         out.println("</head>");
                         out.println("<body>");
                         out.println("<h1>No fue posible registrar la obra</h1>");
-                        out.println("<p>Seras dirigido automaticamente en cinco segundos al menu principal. En caso contrario, puedes acceder registrar otro Lote, haciendo click <a href=" + "CrearUser.html" + ">Aquí</a></p>");
+                        out.println("<p>Seras dirigido automaticamente en cinco segundos al menu principal.</p>");
+                        out.println("<h1>" + b + "</h1>");
                         out.println("</body>");
                         out.println("</html>");
                     }
