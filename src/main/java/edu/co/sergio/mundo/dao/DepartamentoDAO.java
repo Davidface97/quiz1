@@ -77,7 +77,7 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
      * @return boolean retorna true si la operacion de insercion es exitosa.
      */
     public boolean insert(Obra_De_Arte t) {
-        boolean result;
+        boolean result=false;
         Connection connection = null;
         try {
             connection = Conexion.getConnection();
@@ -93,15 +93,13 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
             preparedStmt.setString(3, t.getDescripcion());
             preparedStmt.setString(4, t.getEstilo());
             preparedStmt.setDouble(5, t.getValor());
-            result = true;
             result = preparedStmt.execute();
             return result;
         } catch (SQLException e) {
             e.printStackTrace();
-            result = false;
-            return result;
+            
         }
-
+        return result;
     }
 
     @Override
