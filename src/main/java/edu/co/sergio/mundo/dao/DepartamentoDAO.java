@@ -95,12 +95,13 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
             preparedStmt.setDouble(5, t.getValor());
             result = true;
             result = preparedStmt.execute();
-
+            return result;
         } catch (SQLException e) {
             e.printStackTrace();
             result = false;
+            return result;
         }
-        return result;
+
     }
 
     @Override
