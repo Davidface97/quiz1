@@ -93,8 +93,9 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
             preparedStmt.setString(3, t.getDescripcion());
             preparedStmt.setString(4, t.getEstilo());
             preparedStmt.setDouble(5, t.getValor());
-            result = preparedStmt.execute();
             result = true;
+            result = preparedStmt.execute();
+
         } catch (SQLException e) {
             e.printStackTrace();
             result = false;
